@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <title>Your Finished MadLib</title>
+</head>
+<body>
+
+<h1>Let me tell you a story</h1>
+
+<p>There once was a {{ data.color }} {{ data.noun }} sitting in the Hackbright Lab.
+When {{ data.person }} went to pick it up, it burst into flames in a totally
+{{ data.adjective }} way. <br>
+
+{{data.person}} then went out to grab her favorite foods {% for food in data.favfood %} {{food}}, {% endfor %}
+<br>
+The End
+
+</p>
+
+</body>
+</html>
