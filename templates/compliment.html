@@ -1,16 +1,28 @@
-<!doctype html>
-<html>
-<head>
-  <title>A Compliment</title>
-</head>
-<body>
-    <!-- Hi {{ person }}! I think you're {{ compliment }}! -->
-    <form action="/game" method="GET">
+{% extends 'base.html'%}
+
+{% block title %}A Compliment{% endblock %}
+{% block content %}
+    Hi {{ person }}! I think you're 
+    {% for compliment in compliments %} 
+    	{{compliment}}
+
+		{% if loop.index == loop.length-1 %} 
+	    	{% if loop.length == 2 %}
+	    		and
+	    	{% else%}
+	    		, and
+	    	{% endif %} 
+	    {% elif loop.length >2 and loop.index != loop.length%}
+	    	,
+	    {% endif %}
+    {% endfor %}!
+
+<!--     <form action="/game" method="GET">
     	<h2>Hi there!</h2> <br>
     	Would you like to play a game?
     	<input type="radio" name="playgame" value="yes"> YES
     	<input type="radio" name="playgame" value="no"> NO<br>
     	<input type="submit">
-    </form>
-</body>
-</html>
+    </form> -->
+
+{% endblock %}
